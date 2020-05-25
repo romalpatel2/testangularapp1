@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'testangularapp';
+
+  clickMessage = '';
+  name;
+
+
+  ngOnInit() {
+    console.log('calling ngOnInit...........');
+  }
+
+  onClickMe() {
+    this.clickMessage = 'You are my hero!';
+    console.log(this.name);
+    
+  }
+
 }

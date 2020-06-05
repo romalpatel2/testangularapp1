@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+<br>
+
+<form (ngSubmit)="formSubmit($event)" [formGroup]="form" novalidate>
+
+<input type="text" formControlName="firstname"/>
+<input type="text" formControlName="lastname" />
+
+
+<button type="submit" appGreen>Show name</button>
+
+</form>
+
+<br>
+
+{{testoneway}}
+
+<p testdirective></p>
+
+<div *ngFor="let test of fruit; let i = index;">
+	 {{i}} - {{test | uppercase}}
+</div>
+
+{{ 31.00 | mypipe }}
+
+<select required *ngIf="isVisible">
+	<option *ngFor="let f of fruit" [value]="f"> {{f}} </option>
+</select>

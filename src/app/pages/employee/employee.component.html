@@ -1,0 +1,60 @@
+<app-header></app-header>
+
+<h3>Create Employee</h3>
+<<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input type="text" class="form-control" id="firstName" 
+        required [(ngModel)]="employeeInfo.firstName" name="firstName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Last Name</label>
+      <input type="text" class="form-control" id="lastName" 
+          required [(ngModel)]="employeeInfo.lastName" name="lastName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email ID</label>
+      <input type="text" class="form-control" id="emailId" 
+          required [(ngModel)]="employeeInfo.emailId" name="emailId">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Employee List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees | async">
+            <td>{{employee.firstName}}</td>
+            <td>{{employee.lastName23}}</td>
+            <td>{{employee.emailId}}</td>
+            <td><button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
+                <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
